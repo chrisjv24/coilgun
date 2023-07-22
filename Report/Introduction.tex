@@ -1,0 +1,37 @@
+\addcontentsline{toc}{chapter}{Introduction}
+\chapter{Introduction}
+
+Launching small projectiles is not a simple task. Traditional methods of propelling objects involve converting stored potential, such as chemical energy within gunpowder or mechanical energy stored in springs, into kinetic energy. However, electrical energy has been underutilized and often seen as a power source for motors or pumps rather than direct energy conversion. 
+
+\section{Background Theory}
+When an electric current flows through a wire, a magnetic field is induced. The strength and direction of this magnetic field are governed by the equation 
+
+\begin{equation}
+	\vec{B}(r)=\frac{\mu_0}{4\pi}\oint_C \frac{I \,dl \times (\vec{r}-\vec{r'})}{|\vec{r}-\vec{r'}|^3},
+\end{equation} 
+
+\noindent also known as the Biot-Savart Law, where \(\vec{B}(r)\) is the magnetic field at point \(r\) in teslas, \(I\) is current in Amperes, \(\,dl\) is a vector along path \(C\), \(r'\) is the position of source current at point \(l\), and \(\mu_0\) is the permeability of free space with a value of \(4\pi \times 10^-7 \frac{Tm}{A}\). If the wire were wound into loops, as in the case of a solenoid, then by placing the origin at the centre of the loops and calculating the magnetic field at \(r=0\), the magnetic field would be given by
+
+\begin{equation}
+	\vec{B}(r)=\frac{\mu_0}{4\pi}\oint_C \frac{I \,dl \times -\vec{r'}}{|\vec{r'}|^3}.
+\end{equation}
+
+\noindent For circular loops in a cylindrical coordinate system, the \(\,dl\) element is in the \(\hat{\phi}\) direction, \(\vec{r'}\) is only in the \(\hat{s}\) direction, and the cross product \(\,dl \times -\vec{r'}\) evaluates to be in the \(\hat{z}\) direction. Since a vector in the direction of the circular wire is always orthogonal to the radial vector \(\hat{s}\), the cross product integral (assuming a constant \(I\)) simplifies to 
+
+\begin{equation}
+	\vec{B}(r)=\frac{\mu_0 I}{4\pi}\hat{z}\oint_C \frac{ \,dl \vec{r'}}{|\vec{r'}|^3}=\frac{\mu_0 I}{4\pi r^2}\hat{z}\oint_C {\,dl}
+\end{equation}
+
+\noindent Here, the line integral evaluates to the length of the wire in the solenoid, which can be calculated by taking the circumference of the loops, $2\pi r$, multiplied by the number of loops $N$. Thus, the magnetic field is given by 
+
+\begin{equation}
+	\vec{B}=\frac{\mu_0 IN}{2r'}\hat{z}
+\end{equation}
+
+\noindent For a given projectile, its motion is described through Newton's Second Law. Assuming friction forces are negligible, then the acceleration of a ferromagnetic object of mass $m$ is 
+
+\begin{equation}
+	\vec{a} = \frac{\vec{F_{net}}}{m}=\frac{\vec{B}}{m}=\frac{\mu_0 IN}{2r'm}\hat{z}
+\end{equation}
+
+\noindent From the constant current assumption, the load must come from 

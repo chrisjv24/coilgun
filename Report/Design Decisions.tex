@@ -1,0 +1,20 @@
+\chapter{Design Decisions}
+The system was divided into the following four subsystems: Mechanical Housing, Electrical Circuitry, Coding, and Safety. Each of these systems has their own unique design considerations that are to be explored and addressed.
+
+\section{Electrical System}
+
+The electrical system is the backbone of the project, being the main method of propulsion. This portion can be further broken down into the following: Power, capacitor charging, firing, and coil shutoff.
+
+\subsection{Power}
+
+The power system will need to provide adequate voltage for both the capacitors and micro-controller. The initial micro-controller choice is the Arduino Nano, which requires a 7-12V input. Therefore, either a 3S Lithium-Polymer (Li-Po) or 3 lithium ion 18650 batteries will be sufficient. This battery chemistry was chosen for its large capacity and the ability to recharge the batteries. However, to properly power the capacitor banks, a boost converter must be used to step up the battery voltage to 200-450V. A 390V DC-DC converter will be purchased off of Ali-Express to step up the voltage.
+
+\subsubsection{Capacitor Charging}
+
+The system will use 450V 1000uF capacitors to store energy. In order to charge the capacitors, direct connection to the boost converters will be required. An indicator with a digital display of the boost converter output voltage will be fixed onto the housing, with the assumption that, due to the low capacitance values, the capacitor charge simultaneously match the output. The digital voltage meter will consist of a voltage divider to step down 500V to within a 0-5V range. A voltage divider circuit can be simply modelled through Ohm's Law -- \(V=IR\). From the circuit diagram below, the voltage drop across \(R_2\) can be derived as follows
+
+\begin{equation}
+	V_in=IR_Total
+	V_in
+\end{equation}
+ 
