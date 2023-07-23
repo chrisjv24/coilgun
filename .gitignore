@@ -1,3 +1,6 @@
 *.log
 *.aux
 *.gz
+*.zip
+ControlsBoard-backups/
+fp-info-cache
