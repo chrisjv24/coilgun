@@ -7,8 +7,38 @@ The electrical system is the backbone of the project, being the main method of p
 
 \subsection{Power}
 
-The power system will need to provide adequate voltage for both the capacitors and micro-controller. The initial micro-controller choice is the Arduino Nano, which requires a 7-12V input. Therefore, either a 3S Lithium-Polymer (Li-Po) or 3 lithium ion 18650 batteries will be sufficient. This battery chemistry was chosen for its large capacity and the ability to recharge the batteries. However, to properly power the capacitor banks, a boost converter must be used to step up the battery voltage to 200-450V. A 390V DC-DC converter will be purchased off of Ali-Express to step up the voltage.
+The power system will need to provide adequate voltage for both the capacitors and micro-controller. The initial micro-controller choice is the Arduino Nano, which requires a 7-12V input. Therefore, either a 3S Lithium-Polymer (Li-Po) or 3 lithium ion 18650 batteries will be sufficient. This battery chemistry was chosen for its large capacity and the ability to recharge the batteries. However, to properly power the capacitor banks, a boost converter must be used to step up the battery voltage to 200-450V. A two stage DC-DC converter will be purchased off of Ali-Express to step up the voltage.
 
+\begin{figure}
+	\includegraphics[width=\linewidth]{images/boostcircuit.jpg}
+\end{figure}
+
+The basic boost converter topology shown above can be characterized by first starting with the standard current and voltage equations for inductors and capacitors. 
+
+For inductors, we have 
+\begin{equation}
+	V_{In}=L\frac{di}{dt}
+\end{equation}
+
+where \(V_{In}\) is the input voltage, L is the inductance of the inductor in Henries, and \(\frac{di}{dt}\) is the change in current across the inductor. For a single switching cycle, we have that \(\frac{di}{dt}\) is equal to the change in current across the period of the cycle, T. 
+
+\begin{equation}
+	V_{In}=L\frac{\Delta i}{T}
+\end{equation}
+
+Switching period is also defined as the inverse of the switching frequency \(f_S\). For the voltage across the inductor during only the ON portion of the cycle, the period is also multiplied by the duty cycle \(D\). Rearranging gives
+
+\begin{equation}
+	\Delta i=\frac{V_{In} D}{f_S L}
+\end{equation}
+
+Similarly, the capacitor can be modelled according to
+
+\begin{equation}
+	i=C_v\frac{dV}{dt}
+\end{equation}
+
+where \(C\) is the capacitance.
 \subsubsection{Capacitor Charging}
 
 The system will use 450V 1000uF capacitors to store energy. In order to charge the capacitors, direct connection to the boost converters will be required. An indicator with a digital display of the boost converter output voltage will be fixed onto the housing, with the assumption that, due to the low capacitance values, the capacitor charge simultaneously match the output. The digital voltage meter will consist of a voltage divider to step down 500V to within a 0-5V range. A voltage divider circuit can be simply modelled through Ohm's Law -- \(V=IR\). From the circuit diagram below, the voltage drop across \(R_2\) can be derived as follows
